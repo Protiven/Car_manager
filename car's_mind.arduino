@@ -1,0 +1,253 @@
+#include <SoftwareSerial.h>
+#include <AFMotor.h>
+
+SoftwareSerial mySerial(2, 3); // указываем пины rx и tx соответственно
+AF_DCMotor motor_1(1, MOTOR12_64KHZ); // создаем объект motor #1, 64 КГц ШИМ
+AF_DCMotor motor_2(2, MOTOR12_64KHZ); // создаем объект motor #2, 64 КГц ШИМ
+AF_DCMotor motor_3(3, MOTOR12_64KHZ); // создаем объект motor #3, 64 КГц ШИМ
+AF_DCMotor motor_4(4, MOTOR12_64KHZ); // создаем объект motor #4, 64 КГц ШИМ
+
+#define START_SPEED 250
+#define delay_time 30
+
+// Настройка направления двигателя №1 +
+#define fwrd_1 BACKWARD
+#define bwrd_1 FORWARD
+
+// Настройка направления двигателя №2 +
+#define fwrd_2 FORWARD
+#define bwrd_2 BACKWARD
+
+// Настройка направления двигателя №3 +
+#define fwrd_3 BACKWARD
+#define bwrd_3 FORWARD
+
+// Настройка направления двигателя №4 +
+#define fwrd_4 FORWARD
+#define bwrd_4 BACKWARD
+
+int current_speed = START_SPEED;
+
+void setup()  {
+  pinMode(0,INPUT);
+  pinMode(1,OUTPUT);
+  
+  Serial.begin(9600);
+  mySerial.begin(38400);
+  Serial.println("HELLO!");
+
+  
+  motor_1.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+}
+
+
+void bwrd_move()
+{
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+
+  motor_1.run(bwrd_1);
+  motor_2.run(bwrd_2);
+  motor_3.run(bwrd_3);
+  motor_4.run(bwrd_4);  
+  delay(delay_time);
+  motor_1.run(RELEASE);
+  motor_2.run(RELEASE);
+  motor_3.run(RELEASE);
+  motor_4.run(RELEASE);  
+
+  
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+}
+
+
+void fwrd_move()
+{
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+
+  motor_1.run(fwrd_1);
+  motor_2.run(fwrd_2);
+  motor_3.run(fwrd_3);
+  motor_4.run(fwrd_4);  
+  delay(delay_time);
+  motor_1.run(RELEASE);
+  motor_2.run(RELEASE);
+  motor_3.run(RELEASE);
+  motor_4.run(RELEASE);  
+
+  
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+}
+
+void right_move()
+{
+  motor_1.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+
+  motor_1.run(fwrd_1);
+  motor_2.run(fwrd_2);
+  motor_3.run(bwrd_3);
+  motor_4.run(bwrd_4);  
+  delay(delay_time);
+  motor_1.run(RELEASE);
+  motor_2.run(RELEASE);
+  motor_3.run(RELEASE);
+  motor_4.run(RELEASE);  
+
+  
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+}
+
+void left_move()
+{
+  motor_1.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(START_SPEED); // устанавливаем скорость на 200 из 255 допустимых
+
+  motor_1.run(bwrd_1);
+  motor_2.run(bwrd_2);
+  motor_3.run(fwrd_3);
+  motor_4.run(fwrd_4);  
+  delay(delay_time);
+  motor_1.run(RELEASE);
+  motor_2.run(RELEASE);
+  motor_3.run(RELEASE);
+  motor_4.run(RELEASE);  
+
+  
+  motor_1.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_2.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_3.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+  motor_4.setSpeed(current_speed); // устанавливаем скорость на 200 из 255 допустимых
+}
+
+void set_speed(int a,int b,int c)
+{
+  int k = 0;
+  k = k + (a - '0') * 100 + (b - '0') * 10 + c - '0';
+  if(k > 255)
+    current_speed = 255;
+  else
+    if(k < 0)
+      current_speed = 0;
+    else
+      current_speed = k;
+}
+
+/*
+1 - FORWARD_MOVE
+2 - BACKWARD_MOVE
+3 - RIGHT_MOVE
+4 - LEFT_MOVE
+s - SPEED_SET
+*/
+
+void loop() {
+
+  if (mySerial.available())
+  {
+    char c = mySerial.read(); // читаем из software-порта
+    //Serial.print(c); // пишем в hardware-порт
+    
+    switch(c)
+    {
+      case '1':
+        fwrd_move();
+        break;
+      case '2':
+        bwrd_move();
+        break;
+      case '3':
+        right_move();
+        break;
+      case '4':
+        left_move();
+        break; 
+      case 's':
+        delay(300);
+        if (mySerial.available())
+        {
+          char a = mySerial.read();
+          delay(300);
+          if (mySerial.available())
+          {
+            char b = mySerial.read();
+            delay(300);
+            if (mySerial.available())
+            {
+              char s = mySerial.read();
+              set_speed(a, b, c);
+            }
+          }
+        }       
+        break;
+      default:
+        motor_1.setSpeed(0); // устанавливаем скорость на 200 из 255 допустимых
+        motor_2.setSpeed(0); // устанавливаем скорость на 200 из 255 допустимых
+        motor_3.setSpeed(0); // устанавливаем скорость на 200 из 255 допустимых
+        motor_4.setSpeed(0); // устанавливаем скорость на 200 из 255 допустимых
+    }
+     
+  }
+ /* if (Serial.available()) {
+    char c = Serial.read(); // читаем из hardware-порта
+    mySerial.write(c); // пишем в software-порт
+  }*/
+}
+
+
+/*
+#include <AFMotor.h>
+AF_DCMotor motor_2(2, MOTOR12_64KHZ); // создаем объект motor #2, 64 КГц ШИМ
+
+void setup() {
+
+Serial.begin(9600); // Устанавливаем скорость передачи данных 9600 bps
+motor_2.setSpeed(100); // устанавливаем скорость на 200 из 255 допустимых
+
+}
+
+void loop() {
+
+motor_2.run(BRAKE);
+
+Serial.print("tick");
+
+motor.run(FORWARD); // ротор двигателя начинает вращаться "вперед"
+
+delay(1000);
+
+Serial.print("tock");
+
+motor.run(BACKWARD); // вращается в противоположном направлении
+
+delay(1000);
+
+Serial.print("tack");
+
+motor.run(RELEASE); // остановка
+
+delay(1000);
+
+}
+*/

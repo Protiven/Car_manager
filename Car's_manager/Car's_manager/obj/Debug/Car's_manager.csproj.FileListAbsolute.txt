@@ -1,0 +1,9 @@
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car's_manager.csprojAssemblyReference.cache
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car_s_manager.Form1.resources
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car_s_manager.Properties.Resources.resources
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car's_manager.csproj.GenerateResource.cache
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\bin\Debug\Car's_manager.exe.config
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\bin\Debug\Car's_manager.exe
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\bin\Debug\Car's_manager.pdb
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car's_manager.exe
+C:\Users\Марина\Documents\GitHub\Car's_manager\Car's_manager\obj\Debug\Car's_manager.pdb
